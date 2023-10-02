@@ -1,15 +1,15 @@
-class PersonaFamilia{
+class PersonaCasa{
     private String nombre;
     private int edad;
     private String relacion;
-    private String integrantes;
+    private String integrantesCasa;
     private String hobby;
 
-    public PersonaFamilia(String nombre, int edad, String relacion, String integrantes, String hobby) {
+    public PersonaCasa(String nombre, int edad, String relacion, String integrantesCasa, String hobby){
         this.nombre = nombre;
         this.edad = edad;
         this.relacion = relacion;
-        this.integrantes = integrantes;
+        this.integrantesCasa = integrantesCasa;
         this.hobby = hobby;
     }
     
@@ -37,15 +37,15 @@ class PersonaFamilia{
         this.relacion = relacion;
     }
     
-     public String getIntegrantes(){
-        return integrantes;
+     public String getIntegrantesCasa(){
+        return integrantesCasa;
     }
 
-    public void setIntegrantes(String integrantes){
-        this.integrantes = integrantes;
+    public void setIntegrantesCasa(String IntegrantesCasa){
+        this.integrantesCasa = integrantesCasa;
     }
     
-    public String getHobby() {
+    public String getHobby(){
         return hobby;
     }
 
@@ -61,7 +61,7 @@ class PersonaAlumno{
     private String escuela;
     private String carrera;
 
-    public PersonaAlumno(String nombre, int edad, int promedio, String escuela, String carrera) {
+    public PersonaAlumno(String nombre, int edad, int promedio, String escuela, String carrera){
         this.nombre = nombre;
         this.edad = edad;
         this.promedio = promedio;
@@ -117,7 +117,7 @@ class PersonaEmpleo{
     private String empresa;
     private int salario;
 
-    public PersonaEmpleo(String nombre, int edad, String posicion, String empresa, int salario) {
+    public PersonaEmpleo(String nombre, int edad, String posicion, String empresa, int salario){
         this.nombre = nombre;
         this.edad = edad;
         this.posicion = posicion;
@@ -168,16 +168,16 @@ class PersonaEmpleo{
 
 public class Abstraccion {
     public static void main(String[] args) {
-        PersonaFamilia personaFam = new PersonaFamilia("Juan", 40, "Padre", "3" , "Comercio");
+        PersonaCasa personaCas = new PersonaCasa("Juan", 40, "Padre", "3" , "Comercio");
         PersonaAlumno personaAlum = new PersonaAlumno("David", 21, 80, "UABC", "Computacion");
         PersonaEmpleo personaEmpleado = new PersonaEmpleo("Paul", 31, "Gerente", "Walmart", 10200);
 
         System.out.println("Datos de la Persona en el contexto de Familia/Casa:");
-        System.out.println("Nombre: " + personaFam.getNombre());
-        System.out.println("Edad: " + personaFam.getEdad());
-        System.out.println("Relación: " + personaFam.getRelacion());
-        System.out.println("Integrantes Hogar: " + personaFam.getIntegrantes());
-        System.out.println("Hobby: " + personaFam.getHobby());
+        System.out.println("Nombre: " + personaCas.getNombre());
+        System.out.println("Edad: " + personaCas.getEdad());
+        System.out.println("Relación: " + personaCas.getRelacion());
+        System.out.println("Integrantes Hogar: " + personaCas.getIntegrantesCasa());
+        System.out.println("Hobby: " + personaCas.getHobby());
 
         System.out.println("\nDatos de la Persona en el contexto de Alumno:");
         System.out.println("Nombre: " + personaAlum.getNombre());
