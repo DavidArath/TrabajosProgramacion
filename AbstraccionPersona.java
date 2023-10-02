@@ -1,4 +1,4 @@
-class Persona {
+class Persona{
     private String nombre;
     private int edad;
 
@@ -25,23 +25,23 @@ class Persona {
 }
 
 class PersonaCasa extends Persona{
-    private String relacion;
+    private String relacionCasa;
     private String integrantes;
     private String hobby;
 
-    public PersonaCasa(String nombre, int edad, String relacion, String integrantes, String hobby){
+    public PersonaCasa(String nombre, int edad, String relacionCasa, String integrantes, String hobby){
         super(nombre, edad);
-        this.relacion = relacion;
+        this.relacionCasa = relacionCasa;
         this.integrantes = integrantes;
         this.hobby = hobby;
     }
 
-    public String getRelacion(){
-        return relacion;
+    public String getRelacionCasa(){
+        return relacionCasa;
     }
 
-    public void setRelacion(String relacion){
-        this.relacion = relacion;
+    public void setRelacionCasa(String relacionCasa){
+        this.relacionCasa = relacionCasa;
     }
 
     public String getIntegrantes(){
@@ -139,7 +139,7 @@ public class AbstraccionPersona {
     public static void main(String[] args) {
         Persona persona = new Persona("David", 21);
         PersonaCasa personaCasa = new PersonaCasa("Ricardo", 32, "Tio","2", "Musico");
-        PersonaEscuela personaEscuela = new PersonaEscuela("Marco", 22, 85, "UABC", "Computación");
+        PersonaEscuela personaEscuela = new PersonaEscuela("Marco", 22, 85, "UABC", "Computacion");
         PersonaTrabajo personaTrabajo = new PersonaTrabajo("Josefa", 35, "Finanzas", "Costco", 15800);
 
         System.out.println("Datos de la Persona:");
@@ -149,7 +149,7 @@ public class AbstraccionPersona {
         System.out.println("\nDatos de la Persona en el contexto de Casa:");
         System.out.println("Nombre: " + personaCasa.getNombre());
         System.out.println("Edad: " + personaCasa.getEdad());
-        System.out.println("Relación: " + personaCasa.getRelacion());
+        System.out.println("Relacion: " + personaCasa.getRelacionCasa());
         System.out.println("Integrantes Hogar: " + personaCasa.getIntegrantes());
         System.out.println("Hobby: " + personaCasa.getHobby());
 
