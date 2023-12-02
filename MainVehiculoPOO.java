@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 class Motor {
     private String tipo;
     private int potencia;
@@ -34,11 +36,11 @@ class Transmision {
     }
 }
 
-class Neumatico {
+class Llanta {
     private String marca;
     private int diametro;
 
-    public Neumatico(String marca, int diametro) {
+    public Llanta(String marca, int diametro) {
         this.marca = marca;
         this.diametro = diametro;
     }
@@ -57,14 +59,14 @@ class Vehiculo {
     private String modelo;
     private Motor motor;
     private Transmision transmision;
-    private Neumatico[] neumaticos;
+    private Llanta[] llantas;
 
-    public Vehiculo(String marca, String modelo, Motor motor, Transmision transmision, Neumatico[] neumaticos) {
+    public Vehiculo(String marca, String modelo, Motor motor, Transmision transmision, Llanta[] llantas) {
         this.marca = marca;
         this.modelo = modelo;
         this.motor = motor;
         this.transmision = transmision;
-        this.neumaticos = neumaticos;
+        this.llantas = llantas;
     }
 
     public void imprimirDatosVehiculo() {
@@ -76,25 +78,56 @@ class Vehiculo {
         System.out.println("Numero de marchas: " + transmision.getNumMarchas());
 
         System.out.println("Neumaticos del vehiculo:");
-        for (int i = 0; i < neumaticos.length; i++) {
-            System.out.println("Neumatico " + (i + 1) + ": Marca " + neumaticos[i].getMarca() + ", Diametro " + neumaticos[i].getDiametro() + " pulgadas");
+        for (int i = 0; i < llantas.length; i++) {
+            System.out.println("Neumatico " + (i + 1) + ": Marca " + llantas[i].getMarca() + ", Diametro " + llantas[i].getDiametro() + " pulgadas");
         }
     }
 }
 
 public class MainVehiculoPOO {
     public static void main(String[] args) {
-        Motor motor = new Motor("Gasolina", 200);
-        Transmision transmision = new Transmision("Automatica", 6);
-        Neumatico[] neumaticos = {
-            new Neumatico("Michelin", 17),
-            new Neumatico("Goodyear", 17),
-            new Neumatico("Michelin", 17),
-            new Neumatico("Goodyear", 17)
-        };
+        Scanner scanner = new Scanner(System.in);
 
-        Vehiculo coche = new Vehiculo("Toyota", "Corolla", motor, transmision, neumaticos);
+        System.out.print("Ingrese la cantidad de llantas: ");
+        int cantidadLlantas = scanner.nextInt();
+        scanner.nextLine();
+        Llanta[] llantas = new Llanta[cantidadLlantas];
+        for (int i = 0; i < cantidadLlantas; i++) {
+            System.out.println("Ingrese los detalles de la llanta " + (i + 1) + ":");
+            System.out.print("Marca: ");
+            String marca = scanner.nextLine();
 
+            System.out.print("Diametro: ");
+            int diametro = scanner.nextInt();
+            scanner.nextLine();
+
+            llantas[i] = new Llanta(marca, diametro);
+        }
+        System.out.println("Ingrese los detalles del vehículo:");
+        System.out.print("Marca: ");
+        String marcaVehiculo = scanner.nextLine();
+
+        System.out.print("Modelo: ");
+        String modeloVehiculo = scanner.nextLine();
+
+        System.out.print("Tipo de motor: ");
+        String tipoMotor = scanner.nextLine();
+
+        System.out.print("Potencia del motor: ");
+        int potenciaMotor = scanner.nextInt();
+        scanner.nextLine();
+
+        System.out.print("Tipo de transmisión: ");
+        String tipoTransmision = scanner.nextLine();
+
+        System.out.print("Número de marchas: ");
+        int numMarchas = scanner.nextInt();
+        scanner.nextLine();
+        Motor motor = new Motor(tipoMotor, potenciaMotor);
+        Transmision transmision = new Transmision(tipoTransmision, numMarchas);
+        Vehiculo coche = new Vehiculo(marcaVehiculo, modeloVehiculo, motor, transmision, llantas);
         coche.imprimirDatosVehiculo();
+
+        scanner.close();
     }
 }
